@@ -351,7 +351,10 @@ namespace FirmaCadesNet
         /// <returns></returns>
         private PolicyInformation[] GetPolicyInformation(X509Certificate cert)
         {
-            byte[] certPolicies = cert.GetExtensionValue("2.5.29.32").GetOctets();
+            Asn1OctetString extensionValue = cert.GetExtensionValue("2.5.29.32");
+            if (extensionValue == null) return null;
+
+            byte[] certPolicies = extensionValue.GetOctets();
 
             return CertificatePolicies.GetInstance(certPolicies).GetPolicyInformation();
         }
