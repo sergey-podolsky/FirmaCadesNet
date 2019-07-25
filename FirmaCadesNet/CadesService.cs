@@ -601,7 +601,11 @@ namespace FirmaCadesNet
             {
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    input.CopyTo(ms);
+                    const int bufferSize = 1024;
+                    byte[] buffer = new byte[bufferSize];
+                    int read;
+                    while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                        ms.Write(buffer, 0, read);
                     content = new CmsProcessableByteArray(ms.ToArray());
                 }
             }

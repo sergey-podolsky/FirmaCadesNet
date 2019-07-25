@@ -70,7 +70,7 @@ namespace FirmaCadesNet.Crypto
         {
             if (_disposeCryptoProvider && _cryptoProvider != null)
             {
-                _cryptoProvider.Dispose();
+                _cryptoProvider.Clear();
             }
         }
 
