@@ -97,7 +97,9 @@ namespace Org.BouncyCastle.Asn1.X509
                 return (UserNotice)obj;
             if (obj == null)
                 return null;
+#pragma warning disable CS0618 // Type or member is obsolete
             return new UserNotice(Asn1Sequence.GetInstance(obj));
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         public virtual NoticeReference NoticeRef

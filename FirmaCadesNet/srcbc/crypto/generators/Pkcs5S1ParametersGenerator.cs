@@ -54,7 +54,7 @@ namespace Org.BouncyCastle.Crypto.Generators
 			return digestBytes;
 		}
 
-		/**
+        /**
 		* Generate a key parameter derived from the mPassword, mSalt, and iteration
 		* count we are currently initialised with.
 		*
@@ -62,7 +62,8 @@ namespace Org.BouncyCastle.Crypto.Generators
 		* @return a KeyParameter object.
 		* @exception ArgumentException if the key length larger than the base hash size.
 		*/
-		public override ICipherParameters GenerateDerivedParameters(
+        [Obsolete]
+        public override ICipherParameters GenerateDerivedParameters(
 			int keySize)
 		{
 			return GenerateDerivedMacParameters(keySize);
@@ -85,7 +86,7 @@ namespace Org.BouncyCastle.Crypto.Generators
 			return ParameterUtilities.CreateKeyParameter(algorithm, dKey, 0, keySize);
 		}
 
-		/**
+        /**
 		* Generate a key with initialisation vector parameter derived from
 		* the mPassword, mSalt, and iteration count we are currently initialised
 		* with.
@@ -95,7 +96,8 @@ namespace Org.BouncyCastle.Crypto.Generators
 		* @return a ParametersWithIV object.
 		* @exception ArgumentException if keySize + ivSize is larger than the base hash size.
 		*/
-		public override ICipherParameters GenerateDerivedParameters(
+        [Obsolete]
+        public override ICipherParameters GenerateDerivedParameters(
 			int	keySize,
 			int	ivSize)
 		{

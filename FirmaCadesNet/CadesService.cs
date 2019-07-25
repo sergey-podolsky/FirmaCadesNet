@@ -334,7 +334,7 @@ namespace FirmaCadesNet
             }
             else
             {
-                EssCertIDv2 essCert = new EssCertIDv2(new AlgorithmIdentifier(parameters.DigestMethod
+                EssCertIDv2 essCert = new EssCertIDv2(AlgorithmIdentifier.GetInstance(parameters.DigestMethod
                     .Oid), certHash, issuerSerial);
 
                 SigningCertificateV2 scv2 = new SigningCertificateV2(new EssCertIDv2[] { essCert }, policies);
@@ -351,7 +351,7 @@ namespace FirmaCadesNet
         /// <returns></returns>
         private PolicyInformation[] GetPolicyInformation(X509Certificate cert)
         {
-            Asn1OctetString extensionValue = cert.GetExtensionValue("2.5.29.32");
+            Asn1OctetString extensionValue = cert.GetExtensionValue(new DerObjectIdentifier("2.5.29.32"));
             if (extensionValue == null) return null;
 
             byte[] certPolicies = extensionValue.GetOctets();
@@ -449,7 +449,7 @@ namespace FirmaCadesNet
         private BcCms.Attribute MakeSignaturePolicyAttribute(SignatureParameters parameters)
         {
             SignaturePolicyIdentifier sigPolicy = new SignaturePolicyIdentifier(new SignaturePolicyId(new DerObjectIdentifier
-(parameters.SignaturePolicyInfo.PolicyIdentifier), new OtherHashAlgAndValue(new AlgorithmIdentifier(parameters.SignaturePolicyInfo.PolicyDigestAlgorithm.Oid),
+(parameters.SignaturePolicyInfo.PolicyIdentifier), new OtherHashAlgAndValue(new AlgorithmIdentifier(new DerObjectIdentifier(parameters.SignaturePolicyInfo.PolicyDigestAlgorithm.Oid)),
    new DerOctetString(System.Convert.FromBase64String(parameters.SignaturePolicyInfo.PolicyHash)))));
             return new BcCms.Attribute(PkcsObjectIdentifiers.IdAAEtsSigPolicyID, new DerSet(sigPolicy));
         }

@@ -54,7 +54,9 @@ namespace Org.BouncyCastle.Asn1.Cms
             OtherRecipientInfo existing = obj as OtherRecipientInfo;
             if (existing != null)
                 return existing;
+#pragma warning disable CS0618 // Type or member is obsolete
             return new OtherRecipientInfo(Asn1Sequence.GetInstance(obj));
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         public virtual DerObjectIdentifier OriType

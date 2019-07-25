@@ -75,8 +75,10 @@ namespace Org.BouncyCastle.Pkcs
 			AsymmetricKeyParameter	publicKey,
 			Asn1Set					attributes,
 			AsymmetricKeyParameter	signingKey)
-			: base(signatureAlgorithm, subject, publicKey, attributes, signingKey)
-		{
+#pragma warning disable CS0618 // Type or member is obsolete
+            : base(signatureAlgorithm, subject, publicKey, attributes, signingKey)
+#pragma warning restore CS0618 // Type or member is obsolete
+        {
 		}
 		/// <summary>
 		/// Instantiate a Pkcs10CertificationRequest object with the necessary credentials.

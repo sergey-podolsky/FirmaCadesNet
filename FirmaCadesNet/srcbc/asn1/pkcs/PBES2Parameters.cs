@@ -15,7 +15,9 @@ namespace Org.BouncyCastle.Asn1.Pkcs
             PbeS2Parameters existing = obj as PbeS2Parameters;
             if (existing != null)
                 return existing;
+#pragma warning disable CS0618 // Type or member is obsolete
             return new PbeS2Parameters(Asn1Sequence.GetInstance(obj));
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         public PbeS2Parameters(KeyDerivationFunc keyDevFunc, EncryptionScheme encScheme)

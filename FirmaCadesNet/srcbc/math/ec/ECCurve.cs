@@ -126,7 +126,9 @@ namespace Org.BouncyCastle.Math.EC
 
         public virtual ECPoint CreatePoint(BigInteger x, BigInteger y)
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             return CreatePoint(x, y, false);
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         [Obsolete("Per-point compression property will be removed")]
@@ -207,7 +209,9 @@ namespace Org.BouncyCastle.Math.EC
             // TODO Default behaviour could be improved if the two curves have the same coordinate system by copying any Z coordinates.
             p = p.Normalize();
 
+#pragma warning disable CS0618 // Type or member is obsolete
             return ValidatePoint(p.XCoord.ToBigInteger(), p.YCoord.ToBigInteger(), p.IsCompressed);
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         /**
