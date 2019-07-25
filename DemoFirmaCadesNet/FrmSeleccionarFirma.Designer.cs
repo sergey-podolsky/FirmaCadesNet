@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Árbol de firmas");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Signature Tree");
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -38,7 +38,7 @@
             this.treeView1.Location = new System.Drawing.Point(12, 12);
             this.treeView1.Name = "treeView1";
             treeNode3.Name = "rootNode";
-            treeNode3.Text = "Árbol de firmas";
+            treeNode3.Text = "Signature Tree";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3});
             this.treeView1.Size = new System.Drawing.Size(485, 333);
@@ -51,7 +51,7 @@
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(121, 23);
             this.btnAceptar.TabIndex = 1;
-            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Text = "Accept";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 

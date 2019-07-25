@@ -69,7 +69,7 @@
             this.groupBox1.Size = new System.Drawing.Size(606, 140);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Formato de firma";
+            this.groupBox1.Text = "Signature format";
             // 
             // btnSeleccionarFichero
             // 
@@ -95,7 +95,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Fichero original";
+            this.label1.Text = "Original file";
             // 
             // rbDetachedExplicit
             // 
@@ -166,7 +166,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(165, 13);
             this.label5.TabIndex = 34;
-            this.label5.Text = "Valor hash de la política (base64)";
+            this.label5.Text = "Policy hash value (base64)";
             // 
             // txtIdentificadorPolitica
             // 
@@ -183,7 +183,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(158, 13);
             this.label4.TabIndex = 32;
-            this.label4.Text = "Identificador de política de firma";
+            this.label4.Text = "Signature Policy Identifier";
             // 
             // btnCoFirmar
             // 
@@ -191,7 +191,7 @@
             this.btnCoFirmar.Name = "btnCoFirmar";
             this.btnCoFirmar.Size = new System.Drawing.Size(75, 23);
             this.btnCoFirmar.TabIndex = 31;
-            this.btnCoFirmar.Text = "Co-Firmar";
+            this.btnCoFirmar.Text = "Co-Sign";
             this.btnCoFirmar.UseVisualStyleBackColor = true;
             this.btnCoFirmar.Click += new System.EventHandler(this.btnCoFirmar_Click);
             // 
@@ -201,7 +201,7 @@
             this.btnCargarFirma.Name = "btnCargarFirma";
             this.btnCargarFirma.Size = new System.Drawing.Size(97, 23);
             this.btnCargarFirma.TabIndex = 30;
-            this.btnCargarFirma.Text = "Cargar firma";
+            this.btnCargarFirma.Text = "Load signature";
             this.btnCargarFirma.UseVisualStyleBackColor = true;
             this.btnCargarFirma.Click += new System.EventHandler(this.btnCargarFirma_Click);
             // 
@@ -211,7 +211,7 @@
             this.btnGuardarFirma.Name = "btnGuardarFirma";
             this.btnGuardarFirma.Size = new System.Drawing.Size(97, 23);
             this.btnGuardarFirma.TabIndex = 29;
-            this.btnGuardarFirma.Text = "Guardar firma";
+            this.btnGuardarFirma.Text = "Save signature";
             this.btnGuardarFirma.UseVisualStyleBackColor = true;
             this.btnGuardarFirma.Click += new System.EventHandler(this.btnGuardarFirma_Click);
             // 
@@ -221,7 +221,7 @@
             this.btnCadesT.Name = "btnCadesT";
             this.btnCadesT.Size = new System.Drawing.Size(144, 23);
             this.btnCadesT.TabIndex = 27;
-            this.btnCadesT.Text = "Ampliar a CAdES-T";
+            this.btnCadesT.Text = "Extend a CAdES-T";
             this.btnCadesT.UseVisualStyleBackColor = true;
             this.btnCadesT.Click += new System.EventHandler(this.btnCadesT_Click);
             // 
@@ -240,7 +240,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 13);
             this.label2.TabIndex = 23;
-            this.label2.Text = "URL servidor sellado de tiempo";
+            this.label2.Text = "Time Stamp Server URL";
             // 
             // btnFirmar
             // 
@@ -249,7 +249,7 @@
             this.btnFirmar.Name = "btnFirmar";
             this.btnFirmar.Size = new System.Drawing.Size(75, 23);
             this.btnFirmar.TabIndex = 22;
-            this.btnFirmar.Text = "Firmar";
+            this.btnFirmar.Text = "Sign";
             this.btnFirmar.UseVisualStyleBackColor = true;
             this.btnFirmar.Click += new System.EventHandler(this.btnFirmar_Click);
             // 
@@ -263,7 +263,7 @@
             this.btnValidar.Name = "btnValidar";
             this.btnValidar.Size = new System.Drawing.Size(97, 23);
             this.btnValidar.TabIndex = 41;
-            this.btnValidar.Text = "Validar firmar";
+            this.btnValidar.Text = "Validate signature";
             this.btnValidar.UseVisualStyleBackColor = true;
             this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
             // 
@@ -274,7 +274,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 13);
             this.label3.TabIndex = 42;
-            this.label3.Text = "Huella precalculada (base64)";
+            this.label3.Text = "Precalculated footprint (base64)";
             // 
             // txtHuellaPrecalculada
             // 
@@ -289,7 +289,7 @@
             this.btnFirmarHuella.Name = "btnFirmarHuella";
             this.btnFirmarHuella.Size = new System.Drawing.Size(75, 23);
             this.btnFirmarHuella.TabIndex = 44;
-            this.btnFirmarHuella.Text = "Firmar huella";
+            this.btnFirmarHuella.Text = "Sign footprint";
             this.btnFirmarHuella.UseVisualStyleBackColor = true;
             this.btnFirmarHuella.Click += new System.EventHandler(this.btnFirmarHuella_Click);
             // 
@@ -319,7 +319,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Test firma CAdES";
+            this.Text = "CAdES signature test";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

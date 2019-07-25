@@ -114,7 +114,7 @@ namespace DemoFirmaCadesNet
                 }
             }
 
-            MessageBox.Show("Firma completada, ahora puede Guardar la firma o ampliarla a CAdES-T.", "Test firma CAdES",
+            MessageBox.Show("Signature completed, you can now save the signature or extend it to CAdES-T.", "CAdES signature test",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -127,7 +127,7 @@ namespace DemoFirmaCadesNet
                     _signatureDocument.Save(fs);
                 }
 
-                MessageBox.Show("Firma guardada correctamente.");
+                MessageBox.Show("Signature saved successfully.");
             }
         }
 
@@ -168,7 +168,7 @@ namespace DemoFirmaCadesNet
                 _signatureDocument = cs.CoSign(_signatureDocument, parametros);
             }
 
-            MessageBox.Show("Firma completada, ahora puede Guardar la firma o ampliarla a CAdES-T.", "Test firma CAdES",
+            MessageBox.Show("Signature completed, you can now save the signature or extend it to CAdES-T.", "CAdES signature test",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -196,7 +196,7 @@ namespace DemoFirmaCadesNet
                 _signatureDocument = cs.CounterSign(_signatureDocument, frm.SignerInfo, parametros);
             }
 
-            MessageBox.Show("Firma completada, ahora puede Guardar la firma o ampliarla a CAdES-T.", "Test firma CAdES",
+            MessageBox.Show("Signature completed, you can now save the signature or extend it to CAdES-T.", "CAdES signature test",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -208,7 +208,7 @@ namespace DemoFirmaCadesNet
             FrmSeleccionarFirma frm = new FrmSeleccionarFirma(_signatureDocument);
             if (frm.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                MessageBox.Show("Debe seleccionar una firma");
+                MessageBox.Show("You must select a signature");
                 return;
             }
 
@@ -218,11 +218,11 @@ namespace DemoFirmaCadesNet
 
             if (result.IsValid)
             {
-                MessageBox.Show("Firma válida");
+                MessageBox.Show("Signature is valid");
             }
             else
             {
-                MessageBox.Show("La verificación no ha sido satisfactoria: " + result.Message);
+                MessageBox.Show("Verification failed: " + result.Message);
             }
         }
 
@@ -234,7 +234,7 @@ namespace DemoFirmaCadesNet
             FrmSeleccionarFirma frm = new FrmSeleccionarFirma(_signatureDocument);
             if (frm.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                MessageBox.Show("Debe seleccionar una firma");
+                MessageBox.Show("You must select a signature");
                 return;
             }
 
@@ -245,14 +245,14 @@ namespace DemoFirmaCadesNet
             CadesTUpgrader upgrader = new CadesTUpgrader();
             upgrader.Upgrade(_signatureDocument, frm.SignerInfo, up);
 
-            MessageBox.Show("Firma ampliada correctamente");
+            MessageBox.Show("Signature extended successfully");
         }
 
         private void btnFirmarHuella_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtHuellaPrecalculada.Text))
             {
-                MessageBox.Show("Debe especificar el valor de huella a firmar");
+                MessageBox.Show("You must specify the fingerprint value to sign");
                 return;
             }
 
@@ -282,7 +282,7 @@ namespace DemoFirmaCadesNet
                 _signatureDocument = cs.Sign(null, parametros);
             }
 
-            MessageBox.Show("Firma completada, ahora puede Guardar la firma o ampliarla a CAdES-T.", "Test firma CAdES",
+            MessageBox.Show("Signature completed, you can now save the signature or extend it to CAdES-T.", "CAdES signature test",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
