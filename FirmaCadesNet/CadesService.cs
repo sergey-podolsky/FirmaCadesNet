@@ -70,6 +70,24 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
+        /// Sign the input content. It also accepts the value of the input content footprint
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public SignatureDocument Sign(byte[] input, SignatureParameters parameters)
+        {
+            CheckParameters(parameters);
+
+            if (input == null && parameters.PreCalculatedDigest == null)
+            {
+                throw new Exception("Content to sign needs to be specified");
+            }
+
+            return ComputeSignature(input, parameters, null);
+        }
+
+        /// <summary>
         /// Apply a co-signature to an existing CAdES signature
         /// </summary>
         /// <param name="sigDocument"></param>
@@ -586,13 +604,18 @@ namespace FirmaCadesNet
             return null;
         }
 
-        /// <summary>
-        /// Method that performs the signing process
-        /// </summary>
-        /// <param name="input"></param>
-        /// <param name="parameters"></param>
-        /// <param name="signedData"></param>
-        /// <returns></returns>
+        private SignatureDocument ComputeSignature(byte[] input, SignatureParameters parameters, CmsSignedData signedData)
+		{
+			CmsProcessableByteArray content = null;
+
+            if (input != null)
+            {
+				content = new CmsProcessableByteArray(input);
+			}
+
+            return ComputeSignature(content, parameters, signedData);
+		}
+
         private SignatureDocument ComputeSignature(Stream input, SignatureParameters parameters, CmsSignedData signedData)
         {
             CmsProcessableByteArray content = null;
@@ -610,6 +633,18 @@ namespace FirmaCadesNet
                 }
             }
 
+            return ComputeSignature(content, parameters, signedData);
+        }
+
+        /// <summary>
+        /// Method that performs the signing process
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="parameters"></param>
+        /// <param name="signedData"></param>
+        /// <returns></returns>
+        private SignatureDocument ComputeSignature(CmsProcessableByteArray content, SignatureParameters parameters, CmsSignedData signedData)
+        {
             byte[] toBeSigned = ToBeSigned(content, parameters, signedData, false);
             byte[] signature = parameters.Signer.SignData(toBeSigned, parameters.DigestMethod);
 

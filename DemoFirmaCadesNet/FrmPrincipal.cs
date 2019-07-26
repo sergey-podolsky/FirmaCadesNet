@@ -279,7 +279,7 @@ namespace DemoFirmaCadesNet
 
             using (parametros.Signer = new Signer((X509Certificate2)parametros.Certificate))
             {
-                _signatureDocument = cs.Sign(null, parametros);
+                _signatureDocument = cs.Sign(null as Stream, parametros);
             }
 
             MessageBox.Show("Signature completed, you can now save the signature or extend it to CAdES-T.", "CAdES signature test",
