@@ -46,7 +46,7 @@ namespace FirmaCadesNet.Validation
 
                 if (signerNode.TimeStamp != null)
                 {
-                    DigestMethod tokenDigestMethod = DigestMethod.GetByOid(signerNode.TimeStamp.TimeStampInfo.HashAlgorithm.Algorithm.Id);
+                    DigestMethod tokenDigestMethod = DigestMethod.GetByOid(signerNode.TimeStamp.TimeStampInfo.HashAlgorithm.ObjectID.Id);
                     byte[] signatureValueHash = tokenDigestMethod.CalculateDigest(signerNode.SignerInformation.GetSignature());
 
                     if (!signerNode.TimeStamp.TimeStampInfo.GetMessageImprintDigest().SequenceEqual(signatureValueHash))

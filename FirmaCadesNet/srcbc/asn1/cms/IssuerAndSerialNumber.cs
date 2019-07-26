@@ -19,9 +19,7 @@ namespace Org.BouncyCastle.Asn1.Cms
             IssuerAndSerialNumber existing = obj as IssuerAndSerialNumber;
             if (existing != null)
                 return existing;
-#pragma warning disable CS0618 // Type or member is obsolete
             return new IssuerAndSerialNumber(Asn1Sequence.GetInstance(obj));
-#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         [Obsolete("Use GetInstance() instead")]

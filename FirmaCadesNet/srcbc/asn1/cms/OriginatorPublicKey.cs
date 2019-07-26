@@ -56,9 +56,7 @@ namespace Org.BouncyCastle.Asn1.Cms
                 return (OriginatorPublicKey)obj;
 
 			if (obj is Asn1Sequence)
-#pragma warning disable CS0618 // Type or member is obsolete
                 return new OriginatorPublicKey(Asn1Sequence.GetInstance(obj));
-#pragma warning restore CS0618 // Type or member is obsolete
 
             throw new ArgumentException("Invalid OriginatorPublicKey: " + Platform.GetTypeName(obj));
         }

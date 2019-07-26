@@ -24,9 +24,7 @@ namespace Org.BouncyCastle.Asn1.Cms
                 return (SignerInfo) obj;
 
             if (obj is Asn1Sequence)
-#pragma warning disable CS0618 // Type or member is obsolete
                 return new SignerInfo((Asn1Sequence) obj);
-#pragma warning restore CS0618 // Type or member is obsolete
 
             throw new ArgumentException("Unknown object in factory: " + Platform.GetTypeName(obj), "obj");
         }

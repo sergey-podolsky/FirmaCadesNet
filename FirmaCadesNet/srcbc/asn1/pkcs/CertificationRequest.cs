@@ -28,11 +28,9 @@ namespace Org.BouncyCastle.Asn1.Pkcs
 				return (CertificationRequest)obj;
 
 			if (obj != null)
-#pragma warning disable CS0618 // Type or member is obsolete
-                return new CertificationRequest((Asn1Sequence)obj);
-#pragma warning restore CS0618 // Type or member is obsolete
+				return new CertificationRequest((Asn1Sequence)obj);
 
-            return null;
+			return null;
 		}
 
 		protected CertificationRequest()

@@ -29,9 +29,7 @@ namespace Org.BouncyCastle.Asn1.Pkcs
                 return null;
             if (obj is RsaPrivateKeyStructure)
                 return (RsaPrivateKeyStructure)obj;
-#pragma warning disable CS0618 // Type or member is obsolete
             return new RsaPrivateKeyStructure(Asn1Sequence.GetInstance(obj));
-#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         public RsaPrivateKeyStructure(

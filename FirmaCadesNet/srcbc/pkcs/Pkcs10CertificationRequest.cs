@@ -186,26 +186,20 @@ namespace Org.BouncyCastle.Pkcs
 
 		public Pkcs10CertificationRequest(
 			byte[] encoded)
-#pragma warning disable CS0618 // Type or member is obsolete
-            : base((Asn1Sequence) Asn1Object.FromByteArray(encoded))
-#pragma warning restore CS0618 // Type or member is obsolete
-        {
+			: base((Asn1Sequence) Asn1Object.FromByteArray(encoded))
+		{
 		}
 
 		public Pkcs10CertificationRequest(
 			Asn1Sequence seq)
-#pragma warning disable CS0618 // Type or member is obsolete
-            : base(seq)
-#pragma warning restore CS0618 // Type or member is obsolete
-        {
+			: base(seq)
+		{
 		}
 
 		public Pkcs10CertificationRequest(
 			Stream input)
-#pragma warning disable CS0618 // Type or member is obsolete
-            : base((Asn1Sequence) Asn1Object.FromStream(input))
-#pragma warning restore CS0618 // Type or member is obsolete
-        {
+			: base((Asn1Sequence) Asn1Object.FromStream(input))
+		{
         }
 
         /// <summary>

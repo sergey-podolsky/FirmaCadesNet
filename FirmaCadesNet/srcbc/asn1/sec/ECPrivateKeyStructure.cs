@@ -20,9 +20,7 @@ namespace Org.BouncyCastle.Asn1.Sec
                 return null;
             if (obj is ECPrivateKeyStructure)
                 return (ECPrivateKeyStructure)obj;
-#pragma warning disable CS0618 // Type or member is obsolete
             return new ECPrivateKeyStructure(Asn1Sequence.GetInstance(obj));
-#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         [Obsolete("Use 'GetInstance' instead")]
