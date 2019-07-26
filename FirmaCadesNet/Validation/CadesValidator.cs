@@ -39,7 +39,7 @@ namespace FirmaCadesNet.Validation
                 if (!signerNode.SignerInformation.Verify(signerNode.Certificate))
                 {
                     result.IsValid = false;
-                    result.Message = "La verificación de la firma no ha sido satisfactoria";
+                    result.Message = "Signature verification failed";
 
                     return result;
                 }
@@ -52,14 +52,14 @@ namespace FirmaCadesNet.Validation
                     if (!signerNode.TimeStamp.TimeStampInfo.GetMessageImprintDigest().SequenceEqual(signatureValueHash))
                     {
                         result.IsValid = false;
-                        result.Message = "La huella del sello de tiempo no se corresponde con la calculada";
+                        result.Message = "The stamp of the time stamp does not correspond to the one calculated";
 
                         return result;
                     }
                 }     
 
                 result.IsValid = true;
-                result.Message = "Verificación de la firma satisfactoria";
+                result.Message = "Signature verification suceeded";
 
             }
             catch (Exception ex)

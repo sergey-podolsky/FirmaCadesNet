@@ -52,7 +52,7 @@ namespace FirmaCadesNet
         #region Public methods
 
         /// <summary>
-        /// Realiza la firma del contenido de entrada. También acepta el valor de la huella del contenido de entrada
+        /// Sign the input content. It also accepts the value of the input content footprint
         /// </summary>
         /// <param name="input"></param>
         /// <param name="parameters"></param>
@@ -63,14 +63,14 @@ namespace FirmaCadesNet
 
             if (input == null && parameters.PreCalculatedDigest == null)
             {
-                throw new Exception("Se necesita especificar el contenido a firmar");
+                throw new Exception("Content to sign needs to be specified");
             }
 
             return ComputeSignature(input, parameters, null);
         }
 
         /// <summary>
-        /// Aplica una cofirma a una firma CAdES ya existente
+        /// Apply a co-signature to an existing CAdES signature
         /// </summary>
         /// <param name="sigDocument"></param>
         /// <param name="parameters"></param>
@@ -79,7 +79,7 @@ namespace FirmaCadesNet
         {
             if (sigDocument == null)
             {
-                throw new Exception("Se necesita una firma previa para poder realizar la cofirma");
+                throw new Exception("Previous signature is needed to confirm");
             }
 
             CheckParameters(parameters);
@@ -88,7 +88,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Realiza la contrafirma de una firma CAdES existente
+        /// Make the counter signature of an existing CAdES signature
         /// </summary>
         /// <param name="sigDocument"></param>
         /// <param name="signerInfoNode"></param>
@@ -98,12 +98,12 @@ namespace FirmaCadesNet
         {
             if (sigDocument == null)
             {
-                throw new Exception("Se necesita una firma previa para poder realizar la cofirma");
+                throw new Exception("A prior signature is needed to perform co-sign");
             }
 
             if (signerInfoNode == null)
             {
-                throw new Exception("Se necesita especificar el nodo de firma para aplicar la contrafirma");
+                throw new Exception("Signature node needs to be specified to apply counter signature");
             }
 
             CheckParameters(parameters);
@@ -165,22 +165,22 @@ namespace FirmaCadesNet
         {
             if (parameters == null)
             {
-                throw new Exception("Los parámetros para generar la firma son obligatorios");
+                throw new Exception("The parameters to generate the signature are mandatory");
             }
 
             if (parameters.Signer == null)
             {
-                throw new Exception("No se ha especificado ningún proveedor para generar la firma");
+                throw new Exception("Signer was not specified to generate the signaturea");
             }
 
             if (parameters.Certificate == null)
             {
-                throw new Exception("No se ha especificado el certificado empleado para la firma");
+                throw new Exception("Certificate was not specified");
             }
         }
 
         /// <summary>
-        /// Método para crear el generador de firmas
+        /// Method to create signature generator
         /// </summary>
         /// <param name="signerProvider"></param>
         /// <param name="parameters"></param>
@@ -243,7 +243,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Devuelve una lista con los certificados contenidos en un almacén de certificados
+        /// Returns a list of the certificates contained in a certificate store
         /// </summary>
         /// <param name="certStore"></param>
         /// <returns></returns>
@@ -274,7 +274,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Comprueba si un certificado ya existe en un almacén dado
+        /// Check if a certificate already exists in a given store
         /// </summary>
         /// <param name="cert"></param>
         /// <param name="certStore"></param>
@@ -296,7 +296,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método para crear el atributo que contiene la información del certificado empleado para la firma
+        /// Method to create the attribute that contains the certificate information used for the signature
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -345,7 +345,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Devuelve la información de las políticas de un certificado
+        /// Returns the policy information of a certificate
         /// </summary>
         /// <param name="cert"></param>
         /// <returns></returns>
@@ -361,7 +361,7 @@ namespace FirmaCadesNet
 
 
         /// <summary>
-        /// Método para crear el atributo que contiene la fecha de firma
+        /// Method to create the attribute that contains the signature date
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -372,7 +372,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método para crear el atributo que contiene el rol del firmante
+        /// Method to create the attribute that contains the signer's role
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -388,7 +388,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método para crear el atributo que contiene la información sobre la localización
+        /// Method to create the attribute that contains the location information
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -412,7 +412,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método para crear el atributo que contiene la información sobre la acción del firmante sobre el documento firmado
+        /// Method to create the attribute that contains the information about the signer's action on the signed document
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -442,7 +442,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método para crear el atributo que contiene la información sobre la politica de firma
+        /// Method to create the attribute that contains the information about the signature policy
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -455,7 +455,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método que devuelve los atributos que deberán ser firmados
+        /// Method that returns the attributes that must be signed
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -508,7 +508,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Devuelve los datos finales que deberán ser firmados
+        /// Returns the final data that must be signed
         /// </summary>
         /// <param name="content"></param>
         /// <param name="parameters"></param>
@@ -526,12 +526,12 @@ namespace FirmaCadesNet
             }
             else if (content == null)
             {
-                // Si el contenido es nulo se intenta buscar el valor de la huella del contenido en las otras firmas
+                // If the content is null, try to find the value of the content footprint in the other firms
                 generator.PreCalculatedDigest = GetDigestValue(signedData.GetSignerInfos(), parameters.DigestMethod);
 
                 if (generator.PreCalculatedDigest == null)
                 {
-                    throw new Exception("No se ha podido obtener la huella del contenido");
+                    throw new Exception("Could not get the footprint of the content");
                 }
             }
 
@@ -541,7 +541,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método que busca en las demás firmas el message-digest que coincida con el algoritmo de huella dado 
+        /// Method that searches the other signatures for the message-digest that matches the given fingerprint algorithm
         /// </summary>
         /// <param name="siStore"></param>
         /// <param name="digestMethod"></param>
@@ -565,7 +565,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método que busca en las demás firmas el tipo de contenido firmado
+        /// Method that searches the other signatures for the type of signed content
         /// </summary>
         /// <param name="siStore"></param>
         /// <returns></returns>
@@ -587,7 +587,7 @@ namespace FirmaCadesNet
         }
 
         /// <summary>
-        /// Método que realiza el proceso de firmado
+        /// Method that performs the signing process
         /// </summary>
         /// <param name="input"></param>
         /// <param name="parameters"></param>
