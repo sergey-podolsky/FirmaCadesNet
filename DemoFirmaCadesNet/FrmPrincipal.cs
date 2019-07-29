@@ -267,7 +267,7 @@ namespace DemoFirmaCadesNet
                 (parametros.DigestMethod == DigestMethod.SHA512 &&
                 digestValue.Length != 64))
             {
-                MessageBox.Show("La longitud del valor de la huella no coincide con el algoritmo de huella seleccionado.");
+                MessageBox.Show("The length of the fingerprint value does not match the selected fingerprint algorithm.");
                 return;
             }
 

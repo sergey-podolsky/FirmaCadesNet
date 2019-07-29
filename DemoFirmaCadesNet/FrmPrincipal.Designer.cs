@@ -139,7 +139,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 13);
             this.label7.TabIndex = 39;
-            this.label7.Text = "Algoritmo de huella";
+            this.label7.Text = "Footprint algorithm";
             // 
             // btnContraFirma
             // 
