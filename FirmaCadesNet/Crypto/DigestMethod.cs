@@ -98,7 +98,7 @@ namespace FirmaCadesNet.Crypto
             }
             else
             {
-                throw new Exception("Unsupported digest method");
+                throw new Exception("Unsupported digest OID: " + oid);
             }
         }
 
@@ -118,6 +118,26 @@ namespace FirmaCadesNet.Crypto
             }
 
             throw new Exception("unsupported algo: " + algoName);
+        }
+
+        public static DigestMethod GetByUri(string uri)
+        {
+            if (uri == SHA1.URI)
+            {
+                return SHA1;
+            }
+            else if (uri == SHA256.URI)
+            {
+                return SHA256;
+            }
+            else if (uri == SHA512.URI)
+            {
+                return SHA512;
+            }
+            else
+            {
+                throw new Exception("Unsupported digest URI: " + uri);
+            }
         }
 
         public HashAlgorithm GetHashAlgorithm()
